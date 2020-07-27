@@ -3,10 +3,10 @@ services:
   - docker
 language: generic
 before_install:
-  - docker build -t schmamthekid/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t schmamthekid/multi-docker -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true schmamthekid/react-test npm test
+  - docker run -e CI=true schmamthekid/multi-docker npm test
 
 after_success:
   - docker build -t schmamthekid/multi-client ./client
